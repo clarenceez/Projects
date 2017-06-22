@@ -10,14 +10,26 @@
 			</div>
 			<template v-for="list in ListData">
 				<div class="item">
-					<div class="border first">
+					<div class="border_first first">
 						<div class="margin3">配送时间: <span class="txt-green">{{list.DistributedDateStr}}</span></div>						
 						<div class="margin3" v-for="f in list.FamilyCardInfo">{{f.CardKindName}}，共{{f.TotalCount}}次，第{{f.DistributedCount}}次</div>
 					</div>
-					<template v-for="d in list.DistributionDetails">
+					<div class="borderlist">
+						<div class="txt-list-number">序号</div>
+						<div class="txt-list-title">品种</div>
+						<div class="txt-list-title">数量</div>
+						<div class="txt-list-title">溯源报告</div>
+						<div class="txt-list-title">营养美食</div>
+					</div>
+					<template v-for="(d,index) in list.DistributionDetails">
 						<div class="border">
-							<a :href="$store.state.Area+'/'+d.ProductCookingUrl" class="name"><span>{{d.ProductName}}</span> <span class="name-unit">{{d.Amount}}{{d.Unit}}</span><i class="name-i">></i></a>
-							<a :href="$store.state.Area+'/'+d.ProductReportUrl" class="report">溯源报告</a>
+							<div class="txt-item-number">{{index+1}}</div>
+							<div class="txt-item">{{d.ProductName}}</div>
+							<div class="txt-item">{{d.Amount}}{{d.Unit}}</div>
+							<div class="txt-item"><a :href="$store.state.Area+'/'+d.ProductReportUrl" class="report"><i class="i-report"></i></a></div>
+							<div class="txt-item"><a :href="$store.state.Area+'/'+d.ProductCookingUrl" class="report"><i class="i-cooking"></i></a></div>							
+							
+							
 						</div>
 					</template>
 				</div>
@@ -135,13 +147,50 @@
 		background: white;
 		font-size: 12px;
 	}
-	
-	.item .border {
+	.item .border_first{
 		border-bottom: 0.1px solid #B2B2B2;
 		padding: 10px;
 		position: relative;
 	}
-	
+	.item .border {
+		border-bottom: 0.1px solid #B2B2B2;		
+		padding: 5px 10px 0 10px;
+		display: flex;
+		justify-content: space-around;
+	}
+	.item .border:nth-of-type(2n){
+		background:#f7f7f7 ;
+	}
+	.item .border .txt-item{
+		text-align: center;
+		width:20%;
+		padding-top:5px;
+	}
+	.item .border .txt-item-number{	
+		padding-top:5px;
+		padding-left:2.5%;			
+		width:5%;
+		padding-right: 2.5%;
+	}
+	.item .borderlist{
+		display: flex;
+		justify-content: space-around;
+		padding: 10px;
+		border-bottom: 0.1px solid #B2B2B2;
+		background: #f7f7f7;
+	}
+	.borderlist .txt-list-title{
+		color: #333333;
+		font-weight: 600;
+		width:20%;
+		text-align: center;
+		
+	}
+	.borderlist .txt-list-number{
+		color: #333333;		
+		font-weight: 600;
+		width:10%;				
+	}
 	.item .first {
 		border-top: 0.1px solid #B2B2B2;
 	}
@@ -154,40 +203,22 @@
 		padding-left: 10px;		
 	}
 	
-	.name {
-		height: 30px;
-		line-height: 30px;
-		display: inline-block;
-		width: 100%;
-		text-decoration: none;
-		color: black;
-	}
-	
-	.name .name-i {
-		position: absolute;
-		right: 120px;
-		color: #808080;
-	}
-	
-	.name .name-unit {
-		position: absolute;
-		right: 140px;
-	}
-	
 	.report {
-		position: absolute;
-		display: inline-block;
-		padding: 15px;
-		height: 30px;
-		line-height: 30px;
-		right: 20px;
-		top: 8px;
 		text-decoration: none;
 		color: black;
-		border: #B2B2B2 solid 0.5px;
-		background: #EAEAEA;
-		padding: 0 6px;
-		border-radius: 6px;
-		font-size: 12px;
+	}
+	.report .i-cooking{
+		display: inline-block;
+		width: 16px;
+		height: 24px;
+		background: url("../static/img/cooking.png") no-repeat;
+		background-size: 100%;
+	}
+	.report .i-report{
+		display: inline-block;
+		width: 16px;
+		height: 24px;
+		background: url("../static/img/report.png") no-repeat;
+		background-size: 100%;
 	}
 </style>

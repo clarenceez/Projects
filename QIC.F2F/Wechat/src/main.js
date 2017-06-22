@@ -17,9 +17,9 @@ const vuex_store = new Vuex.Store({
 		state: {
 			CaptchaTime: 60,
 			urlConfigs: urlConfig,			
-			IsDev: true, //是否为调试状态,发布为false
-			Area:'http://192.168.0.143:8112/',//'http://m.creekfarm.cn/WebApi',  //完整域名
-			ApiUrl: '/Api/Wechat', //webApi地址WebApi
+			IsDev: false, //是否为调试状态,发布为false
+			Area:'http://m.creekfarm.cn/WebApi',//'http://192.168.0.143:8112/',  //完整域名
+			ApiUrl: 'WebApi/Api/Wechat', //webApi地址
 			Headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
 				'Access-Control-Allow-Origin': '*',

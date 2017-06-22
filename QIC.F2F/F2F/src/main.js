@@ -29,9 +29,9 @@ router.afterEach((to, from, next) => {
 const vuex_store = new Vuex.Store({
 	state: {
 		urlConfigs: urlConfig,
-		IsDev: true, //是否为调试状态
-		Area: 'http://192.168.0.143:8112',//'http://bm.creekfarm.cn:8010/WebApi', //完整域名
-		ApiUrl: '/Api/Background', //webApi地址/WebApi
+		IsDev: false, //是否为调试状态
+		Area:'http://bm.creekfarm.cn:8010/WebApi', //'http://192.168.0.143:8112', //完整域名
+		ApiUrl: '/WebApi/Api/Background', //webApi地址
 		Headers: {
 			'Content-Type': 'application/x-www-form-urlencoded',
 			'Access-Control-Allow-Origin': '*'
