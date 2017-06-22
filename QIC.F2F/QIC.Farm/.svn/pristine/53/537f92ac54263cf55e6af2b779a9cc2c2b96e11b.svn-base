@@ -1,0 +1,35 @@
+﻿using Newtonsoft.Json;
+using QIC.Infrastructure.Common.HttpRequest;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Web;
+
+namespace QIC.Farm.WebApi.Common
+{
+    public class WechatHelper
+    {
+        public static string GetWechatOpenID(string code)
+        {
+            string urlFormatter = "https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code";
+            string appID = ConfigurationManager.AppSettings["appid"];
+            string secret = ConfigurationManager.AppSettings["secret"];
+
+            var url = string.Format(urlFormatter, appID, secret, code);
+            var result = UserWebRequest.Request(url, false, RequestMethod.GET, "");
+
+            var dic = JsonConvert.DeserializeObject<Dictionary<string, string>>(result);
+            if (dic.ContainsKey("errcode"))
+            {
+                return "";
+            }
+
+            string openID = dic["openid"];
+            return openID;
+        }
+    }
+}

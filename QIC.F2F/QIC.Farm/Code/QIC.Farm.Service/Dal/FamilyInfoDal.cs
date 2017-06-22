@@ -1,0 +1,241 @@
+﻿using QIC.Farm.Service.Dto;
+using QIC.Farm.Service.Enums;
+using QIC.Farm.Service.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using EntityFramework.Extensions;
+
+namespace QIC.Farm.Service.Dal
+{
+    public class FamilyInfoDal
+    {
+        public FamilyResult Add(FamilyInfoDto familyInfo)
+        {
+            var result = new FamilyResult();
+            using (var context = new Entities())
+            {
+                if (context.FamilyInfo.Any(x => x.Mobile == familyInfo.Mobile))
+                {
+                    result.FamilyError = FamilyInfoError.MobileExist;
+                    return result;
+                }
+
+                var family = context.FamilyInfo.Add(new FamilyInfo
+                {
+                    Name = familyInfo.Name,
+                    NickName = familyInfo.NickName,
+                    OpenID = familyInfo.OpenID,
+                    Mobile = familyInfo.Mobile,
+                    Region = familyInfo.Region,
+                    FamilyNumber = familyInfo.FamilyNumber,
+                    Description = familyInfo.Description,
+                    IsClosed = familyInfo.IsClosed
+                });
+
+                var count = context.SaveChanges();
+                if (count > 0)
+                {
+                    result.FamilyError = FamilyInfoError.Success;
+                    result.FamilyID = family.ID;
+                }
+            }
+
+            return result;
+        }
+
+        public bool Delete(int id)
+        {
+            using (var context = new Entities())
+            {
+                var result = context.FamilyInfo.Where(x => x.ID == id).Update(x => new FamilyInfo { IsClosed = true });
+                return result > 0;
+            }
+        }
+
+        public FamilyResult Update(FamilyInfoDto familyInfo)
+        {
+            var result = new FamilyResult();
+            using (var context = new Entities())
+            {
+                if (context.FamilyInfo.Any(x => x.ID != familyInfo.ID && x.Mobile == familyInfo.Mobile))
+                {
+                    result.FamilyError = FamilyInfoError.MobileExist;
+                    return result;
+                }
+
+                var count = context.FamilyInfo.Where(x => x.ID == familyInfo.ID).Update(x => new FamilyInfo
+                {
+                    Name = familyInfo.Name,
+                    Mobile = familyInfo.Mobile,
+                    Region = familyInfo.Region,
+                    IsClosed = familyInfo.IsClosed,
+                    Description = familyInfo.Description,
+                    FamilyNumber = familyInfo.FamilyNumber
+                });
+
+                if (count > 0) result.FamilyError = FamilyInfoError.Success;
+            }
+            return result;
+        }
+
+        public bool SetOpenIDByPhone(string phoneNumber,string openID,string nickname)
+        {
+            using (var context = new Entities())
+            {
+                var count = context.FamilyInfo.Where(x => x.Mobile == phoneNumber).Update(x => new FamilyInfo
+                {
+                    OpenID = openID,
+                    NickName = nickname
+                });
+                return count > 0;
+            }
+        }
+
+        public FamilyInfoDto GetFamilyInfoByID(int id)
+        {
+            using (var context = new Entities())
+            {
+                var familyInfo = context.FamilyInfo.FirstOrDefault(x => x.ID == id);
+                return new FamilyInfoDto
+                {
+                    ID = familyInfo.ID,
+                    Name = familyInfo.Name,
+                    NickName = familyInfo.NickName,
+                    Region = familyInfo.Region,
+                    OpenID = familyInfo.OpenID,
+                    Mobile = familyInfo.Mobile,
+                    FamilyNumber = familyInfo.FamilyNumber,
+                    Description = familyInfo.Description,
+                    IsClosed = familyInfo.IsClosed
+                };
+            }
+        }
+
+        public FamilyInfoDto GetFamilyInfoByName(string name)
+        {
+            name = name.Trim();
+            using (var context = new Entities())
+            {
+                var familyInfo = context.FamilyInfo.FirstOrDefault(x => x.Name == name);
+                return new FamilyInfoDto { 
+                    ID = familyInfo.ID,
+                    Name = familyInfo.Name,
+                    NickName = familyInfo.NickName,
+                    Region = familyInfo.Region,
+                    OpenID = familyInfo.OpenID,
+                    Mobile = familyInfo.Mobile,
+                    FamilyNumber = familyInfo.FamilyNumber,
+                    Description = familyInfo.Description,
+                    IsClosed = familyInfo.IsClosed
+                };
+            }
+        }
+
+        public List<FamilyInfoDto> GetFamilyInfoListByNameFuzzy(string name, int count)
+        {
+            name = name.Trim();
+            using (var context = new Entities())
+            {
+                var familyInfoList = context.FamilyInfo.Where(x => x.Name.Contains(name)).Take(count).Select(x=>new FamilyInfoDto
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    NickName = x.NickName,
+                    Region = x.Region,
+                    OpenID = x.OpenID,
+                    Mobile = x.Mobile,
+                    FamilyNumber = x.FamilyNumber,
+                    Description = x.Description,
+                    IsClosed = x.IsClosed
+                }).ToList();
+                return familyInfoList;
+            }
+        }
+
+        public FamilyInfoDto GetFamilyInfoByPhoneNumber(string phoneNumber)
+        {
+            phoneNumber = phoneNumber.Trim();
+            using (var context = new Entities())
+            {
+                var familyInfo = context.FamilyInfo.FirstOrDefault(x => x.Mobile == phoneNumber);
+                return new FamilyInfoDto
+                {
+                    ID = familyInfo.ID,
+                    Name = familyInfo.Name,
+                    NickName = familyInfo.NickName,
+                    Region = familyInfo.Region,
+                    OpenID = familyInfo.OpenID,
+                    Mobile = familyInfo.Mobile,
+                    FamilyNumber = familyInfo.FamilyNumber,
+                    Description = familyInfo.Description,
+                    IsClosed = familyInfo.IsClosed
+                };
+            }
+        }
+
+        public bool IsUserExist(string openID)
+        {
+            using (var context = new Entities())
+            {
+                return context.FamilyInfo.Any(x => x.OpenID == openID);
+            }
+        }
+
+        public CommonSearchResult<FamilyInfoDto> GetFamilyInfoList(FamilyInfoSearchDto searchDto)
+        {
+            var name = (searchDto.Name ?? "").Trim();
+            var nickname = (searchDto.NickName ?? "").Trim();
+            var mobile = (searchDto.Mobile ?? "").Trim();
+
+            using (var context = new Entities())
+            {
+                var query = context.FamilyInfo.AsQueryable();
+
+                if (searchDto.IsClosed.HasValue)
+                {
+                    query = query.Where(x => x.IsClosed == searchDto.IsClosed.Value);
+                }
+
+                if (!string.IsNullOrEmpty(name))
+                {
+                    query = query.Where(x => x.Name.Contains(name));
+                }
+
+                if (!string.IsNullOrEmpty(nickname))
+                {
+                    query = query.Where(x => x.NickName.Contains(nickname));
+                }
+
+                if (!string.IsNullOrEmpty(mobile))
+                {
+                    query = query.Where(x => x.Mobile.Contains(mobile));
+                }
+
+                var fianlQuery = query.Select(x => new FamilyInfoDto
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    NickName = x.NickName,
+                    Mobile = x.Mobile,
+                    OpenID = x.OpenID,
+                    Region = x.Region,
+                    IsClosed = x.IsClosed,
+                    Description = x.Description,
+                    FamilyNumber = x.FamilyNumber
+                }).OrderBy(x => x.ID);
+
+                var countQuery = fianlQuery.FutureCount();
+
+                var listQuery = fianlQuery.Skip((searchDto.PageIndex - 1) * searchDto.PageSize).Take(searchDto.PageSize).Future();
+
+                var familys = listQuery.ToList();
+
+                return new CommonSearchResult<FamilyInfoDto> { Result = familys, TotalCount = countQuery.Value };
+            }
+        }
+
+    }
+}

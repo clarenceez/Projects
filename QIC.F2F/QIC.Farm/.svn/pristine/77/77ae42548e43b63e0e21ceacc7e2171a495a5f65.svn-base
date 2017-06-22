@@ -1,0 +1,78 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Web;
+using QIC.Infrastructure.WebFramework.Model;
+using QIC.Infrastructure.WebFramework.Token;
+using QIC.Infrastructure.Common.Safety.Dto;
+using QIC.Farm.WebApi.Models;
+using QIC.Farm.WebApi.ConfigSettings;
+
+namespace QIC.Farm.WebApi.Common
+{
+    public class MemTokenHelper : TokenHelper
+    {
+        public MemTokenHelper(System.Web.HttpContext context, bool allowTourist)
+            : base(context, allowTourist)
+        {
+        }
+        public MemTokenHelper(System.Web.HttpContextBase context, bool allowTourist)
+            : base(context, allowTourist)
+        {
+        }
+
+        public static TokenParamModel GetWeChatTokenConfig()
+        {
+            WechatSectionModel dto = GetWeChatInfo();
+            TokenParamModel model = new TokenParamModel()
+            {
+                ShareKey = dto.ShareKey,
+                SecretKey = dto.SecretKey,
+                Signature = dto.Signature,
+                TokenExpiredTime = dto.TokenExpiredTime
+            };
+            return model;
+        }
+
+        protected virtual WechatSectionModel GetWeChatTokenParam()
+        {
+            return GetWeChatInfo();
+        }
+
+        protected override void CheckOpenID(PayloadDto dto)
+        {
+            base.CheckOpenID(dto);
+            if (dto.Tourist) return;
+            ////帐号验证
+            //MemberInfoService memberInfoSvc = new MemberInfoService();
+            //var result = memberInfoSvc.GetMemberByOpenID(dto.OpenID);
+            //if (result.Result != MemberService.Enum.ResultError.Success)
+            //{
+            //    TokenException.ThrowTokenException(AuthResult.AccountInvalid);
+            //}
+            ////帐号已经关闭
+            //if (result.Data.Closed)
+            //{
+            //    TokenException.ThrowTokenException(AuthResult.AccountInvalid);
+            //}
+        }
+
+        public static WechatSectionModel GetWeChatInfo()
+        {
+            TokenKeyInfo tokenKyeInfo = (TokenKeyInfo)ConfigurationManager.GetSection("TokenKey");
+            if (tokenKyeInfo == null)
+            {
+                throw new ConfigurationErrorsException("Section TokenKey is not found.");
+            }
+            WechatSectionModel setionDto = new WechatSectionModel()
+            {
+                ShareKey = tokenKyeInfo.WechatSection.Wechat["Wechat"].ShareKey,
+                SecretKey = tokenKyeInfo.WechatSection.Wechat["Wechat"].SecretKey,
+                TimeEquation = tokenKyeInfo.WechatSection.Wechat["Wechat"].TimeEquation,
+                TokenExpiredTime = tokenKyeInfo.WechatSection.Wechat["Wechat"].TokenExpiredTime,
+            };
+            return setionDto;
+        }
+    }
+}

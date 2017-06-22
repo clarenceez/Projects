@@ -1,0 +1,7 @@
+{
+	"GetUserInfoByPhoneNumber":"/GetUserInfoByPhoneNumber",
+	"GetMobileCaptChaForBindUser":"/GetMobileCaptChaForBindUser",
+	"BindUser":"/BindUser",
+	"Login":"/Login",
+	"GetDistributionListByOpenID":"/GetDistributionListByOpenID"
+}

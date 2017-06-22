@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace QIC.Farm.Service.Dto
+{
+    public class ProductDto
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Unit { get; set; }
+        public string Cooking { get; set; }
+        public bool IsClosed { get; set; }
+    }
+}

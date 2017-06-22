@@ -1,0 +1,357 @@
+﻿using QIC.Farm.Service.Common;
+using QIC.Farm.Service.Dal;
+using QIC.Farm.Service.Dto;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace QIC.Farm.Service
+{
+    public class FarmService
+    {
+        #region 家庭管理
+
+        //添加家庭信息
+        public FamilyResult AddFamilyInfo(FamilyInfoDto familyInfo)
+        {
+            FamilyInfoDal dal = new FamilyInfoDal();
+            return dal.Add(familyInfo);
+        }
+
+        //删除家庭信息
+        public bool DeleteFamilyInfo(int familyID)
+        {
+            FamilyInfoDal dal = new FamilyInfoDal();
+            return dal.Delete(familyID);
+        }
+
+        //修改家庭信息
+        public FamilyResult UpdateFamilyInfo(FamilyInfoDto familyInfo)
+        {
+            FamilyInfoDal dal = new FamilyInfoDal();
+            return dal.Update(familyInfo);
+        }
+
+        //根据手机绑定OpenID
+        public bool SetOpenIDByPhone(string phoneNumber, string openID)
+        {
+            FamilyInfoDal dal = new FamilyInfoDal();
+            return dal.SetOpenIDByPhone(phoneNumber,openID);
+        }
+
+        //根据id查询家庭信息
+        public FamilyInfoDto GetFamilyInfoByID(int id)
+        {
+            FamilyInfoDal dal = new FamilyInfoDal();
+            return dal.GetFamilyInfoByID(id);
+        }
+
+        //根据会员名称查询家庭信息
+        public FamilyInfoDto GetFamilyInfoByName(string name)
+        {
+            FamilyInfoDal dal = new FamilyInfoDal();
+            return dal.GetFamilyInfoByName(name);
+        }
+
+        public List<FamilyInfoDto> GetFamilyInfoListByNameFuzzy(string name, int count)
+        {
+            FamilyInfoDal dal = new FamilyInfoDal();
+            return dal.GetFamilyInfoListByNameFuzzy(name,count);
+        }
+
+        public FamilyInfoDto GetFamilyInfoByPhoneNumber(string phoneNumber)
+        {
+            FamilyInfoDal dal = new FamilyInfoDal();
+            return dal.GetFamilyInfoByPhoneNumber(phoneNumber);
+        }
+
+        public bool IsUserExist(string openID)
+        {
+            FamilyInfoDal dal = new FamilyInfoDal();
+            return dal.IsUserExist(openID);
+        }
+
+        //按条件查询家庭信息
+        public CommonSearchResult<FamilyInfoDto> GetFamilyInfoList(FamilyInfoSearchDto searchParam)
+        {
+            FamilyInfoDal dal = new FamilyInfoDal();
+            return dal.GetFamilyInfoList(searchParam);
+        }
+
+        #endregion
+
+        #region 家庭收货地址管理
+        //添加收货地址信息
+        public bool AddFamilyAddress(FamilyAddressDto familyAddress)
+        {
+            FamilyAddressDal dal = new FamilyAddressDal();
+            return dal.Add(familyAddress);
+        }
+        
+        //删除收货地址
+        public bool DeleteFamilyAddress(int addressID)
+        {
+            FamilyAddressDal dal = new FamilyAddressDal();
+            return dal.Delete(addressID);
+        }
+
+        //修改收货地址信息
+        public bool UpdateFamilyAddress(FamilyAddressDto familyAddress)
+        {
+            FamilyAddressDal dal = new FamilyAddressDal();
+            return dal.Update(familyAddress);
+        }
+
+        //查询某个家庭的所有收货地址
+        public CommonSearchResult<FamilyAddressDto> GetFamilyAddressByFamilyID(int familyID)
+        {
+            FamilyAddressDal dal = new FamilyAddressDal();
+            return dal.GetAddressListByFamilyID(familyID);
+        }
+
+        //条件查询所有收货地址
+        public CommonSearchResult<FamilyAddressDto> GetFamilyAddressList(FamilyAddressSearchDto searchParam)
+        {
+            FamilyAddressDal dal = new FamilyAddressDal();
+            return dal.GetFamilyAddressList(searchParam);
+        }
+
+        #endregion
+
+        #region 会员卡管理
+        //添加会员卡
+        public CardKindResult AddCardKind(CardKindDto cardKind)
+        {
+            CardKindDal dal = new CardKindDal();
+            return dal.Add(cardKind);
+        }
+
+        //删除卡类型(注意不是正常删除 实为修改isClose状态)
+        public bool DeleteCardKind(int cardKindID)
+        {
+            CardKindDal dal = new CardKindDal();
+            return dal.Delete(cardKindID);
+        }
+
+        //修改会员卡信息
+        public CardKindResult UpdateCardKind(CardKindDto cardKind)
+        {
+            CardKindDal dal = new CardKindDal();
+            return dal.Update(cardKind);
+        }
+
+        //根据卡类型名称模糊查询卡信息
+        public List<CardKindDto> GetCardKindListByNameFuzzy(string name, int count)
+        {
+            CardKindDal dal = new CardKindDal();
+            return dal.GetCardKindListByNameFuzzy(name,count);
+        }
+
+        //条件查询所有会员卡信息
+        public CommonSearchResult<CardKindDto> GetCardKindList(CardKindSearchDto searchParam)
+        {
+            CardKindDal dal = new CardKindDal();
+            return dal.GetCardKindList(searchParam);
+        }
+
+        #endregion
+
+        #region 家庭拥有的会员卡管理
+
+        //添加家庭会员卡
+        public FamilyCardResult AddFamilyCard(FamilyCardDto familyCard)
+        {
+            FamilyCardDal dal = new FamilyCardDal();
+            return dal.Add(familyCard);
+        }
+
+        //删除家庭的会员卡
+        public bool DeleteFamilyCard(int familyCardID)
+        {
+            FamilyCardDal dal = new FamilyCardDal();
+            return dal.Delete(familyCardID);
+        }
+
+        //修改家庭的会员卡信息
+        public FamilyCardResult UpdateFamilyCardKind(FamilyCardDto familyCard)
+        {
+            FamilyCardDal dal = new FamilyCardDal();
+            return dal.Update(familyCard);
+        }
+
+        //修改配送次数
+        public void UpdateTotalCount(List<int> ids)
+        {
+            FamilyCardDal dal = new FamilyCardDal();
+            dal.UpdateTotalCount(ids);
+        }
+
+        //条件查询所有家庭的会员卡信息
+        public CommonSearchResult<FamilyCardDto> GetCardKindList(FamilyCardSearchDto searchParam)
+        {
+            FamilyCardDal dal = new FamilyCardDal();
+            return dal.GetFamilyCardList(searchParam);
+        }
+
+        //查询某家庭的所有会员卡信息
+        public CommonSearchResult<FamilyCardDto> GetCardKindByFamily(int familyID)
+        {
+            FamilyCardDal dal = new FamilyCardDal();
+            return dal.GetFamilyCardByFamily(familyID);
+        }
+
+        #endregion  
+
+        #region 农产品管理
+        //添加产品信息
+        public ProductResult AddProduct(ProductDto product)
+        {
+            ProductDal dal = new ProductDal();
+            return dal.Add(product);
+        }
+
+        //删除产品信息（实为修改IsClosed状态）
+        public bool DeleteProduct(int productID)
+        {
+            ProductDal dal = new ProductDal();
+            return dal.Delete(productID);
+        }
+
+        //修改产品信息
+        public ProductResult UpdateProduct(ProductDto product)
+        {
+            ProductDal dal = new ProductDal();
+            return dal.Update(product);
+        }
+
+        //获取产品列表
+        public CommonSearchResult<ProductDto> GetProductList(ProductSearchDto searchParam)
+        {
+            ProductDal dal = new ProductDal();
+            return dal.GetProductList(searchParam);
+        }
+
+        #endregion
+
+        #region 产品报告管理
+
+        //添加产品报告信息
+        public ProductReportResult AddProductReport(ProductReportDto productReport)
+        {
+            ProductReportDal dal = new ProductReportDal();
+            return dal.Add(productReport);
+        }
+
+        //删除产品报告信息（实为修改IsClosed状态）
+        public bool DeleteProductReport(int productReportID)
+        {
+            ProductReportDal dal = new ProductReportDal();
+            return dal.Delete(productReportID);
+        }
+
+        //修改产品报告信息
+        public ProductReportResult UpdateProductReport(ProductReportDto productReport)
+        {
+            ProductReportDal dal = new ProductReportDal();
+            return dal.Update(productReport);
+        }
+
+        //获取产品报告列表
+        public CommonSearchResult<ProductReportDto> GetProductReportList(ProductReportSearchDto searchParam)
+        {
+            ProductReportDal dal = new ProductReportDal();
+            return dal.GetProductReportList(searchParam);
+        }
+
+        #endregion
+
+        #region 配送单管理
+        //添加配送单
+        public DistributionResult AddDistribution(DistributionDto distribution)
+        {
+            DistributionDal dal = new DistributionDal();
+            return dal.Add(distribution);            
+        }
+
+        //删除配送单
+        public bool DeleteDistribution(string distributionID)
+        {
+            DistributionDal dal = new DistributionDal();
+            return dal.Delete(distributionID);
+        }
+
+        //修改配送单
+        public bool UpdateDistribution(DistributionDto distribution)
+        {
+            DistributionDal dal = new DistributionDal();
+            return dal.Update(distribution);
+        }
+
+        //条件查询所有配送单
+        public CommonSearchResult<DistributionDto> GetDistributionList(DistributionSearchDto searchParam)
+        {
+            DistributionDal dal = new DistributionDal();
+            return dal.GetDistributionList(searchParam);
+        }
+
+        //通过id查询配送单信息(包括配送单的详情)
+        public DistributionDto GetDistributionByID(string id)
+        {
+            DistributionDal dal = new DistributionDal();
+            return dal.GetDistributionByID(id);
+        }
+
+        //查询某个家庭的配送单(包括配送单的详情)
+        public CommonSearchResult<DistributionDto> GetDistributionListByFamily(int familyID)
+        {
+            DistributionDal dal = new DistributionDal();
+            return dal.GetDistributionListByFamily(familyID);
+        }
+
+        #endregion
+
+        #region 配送单详情管理
+        //添加配送单
+        public bool AddDistributionDetail(DistributionDetailDto distributionDetail)
+        {
+            DistributionDetailDal dal = new DistributionDetailDal();
+            return dal.Add(distributionDetail);
+        }
+
+        //删除配送单
+        public bool DeleteDistributionDetail(long distributionDetailID)
+        {
+            DistributionDetailDal dal = new DistributionDetailDal();
+            var result = dal.Delete(distributionDetailID);
+            //删除清单时 判断此类型卡在清单中是否不存在了，如果是，则添加1次配送次数
+
+            return result;
+        }
+
+        //删除配送单
+        public bool DeleteDistributionDetail(string distributionID)
+        {
+            DistributionDetailDal dal = new DistributionDetailDal();
+            var result = dal.Delete(distributionID);            
+            return result;
+        }
+
+        //修改配送单
+        public bool UpdateDistributionDetail(DistributionDetailDto distributionDetail)
+        {
+            DistributionDetailDal dal = new DistributionDetailDal();
+            return dal.Update(distributionDetail);
+        }
+
+        //查询某个配送单的配送详情列表
+        public List<DistributionDetailDto> GetDetailByDistributionID(string distributionID)
+        {
+            DistributionDetailDal dal = new DistributionDetailDal();
+            return dal.GetDetailListByDistributionID(distributionID);
+        }
+
+        #endregion
+    }
+}

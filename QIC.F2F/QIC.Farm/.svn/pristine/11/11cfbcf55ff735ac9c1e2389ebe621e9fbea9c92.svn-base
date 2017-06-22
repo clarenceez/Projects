@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Web;
+
+namespace QIC.Farm.WebApi.Common
+{
+    public class HtmlReportHelper
+    {
+        public static string CreateHtmlReport(string filename, string htmlContent)
+        {
+            string path = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, filename, ".html");
+
+            string emptyHtml = "<!DOCTYPE html><html xmlns='http://www.w3.org/1999/xhtml'><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'/><title></title></head><body>{0}</body></html>";
+            string html = string.Format(emptyHtml, htmlContent);
+            FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate);
+            StreamWriter streamWriter = new StreamWriter(fileStream, Encoding.Default);
+            streamWriter.Write(html + "\r\n");
+            streamWriter.Flush();
+            streamWriter.Close();
+            fileStream.Close();
+            return "/GetReport/" + filename;
+        }
+
+
+        public static string ReaderHtmlReportContent(string filename)
+        {
+            var path = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, filename, ".html");
+            FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate);
+            StreamReader streamReader = new StreamReader(fileStream, Encoding.Default);
+            var str = streamReader.ReadToEnd();
+            streamReader.Close();
+            fileStream.Close();
+
+            var startIndex = str.IndexOf("<body>");
+            var endIndex = str.IndexOf("</body>");
+
+            return str.Substring(startIndex, endIndex - startIndex);
+        }
+    }
+}

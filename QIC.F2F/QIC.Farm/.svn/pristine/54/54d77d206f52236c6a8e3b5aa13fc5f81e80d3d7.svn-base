@@ -1,0 +1,151 @@
+﻿using QIC.Farm.Service.Dto;
+using QIC.Farm.Service.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using EntityFramework.Extensions;
+
+namespace QIC.Farm.Service.Dal
+{
+    public class DistributionDetailDal
+    {
+        //返回当前数据中的会员卡在配送清单中的数量
+        public int GetFamilyCardCount(long DistributionDetailID)
+        {
+            int count = 0;
+            using (var context = new Entities())
+            {
+                var detail = context.DistributionDetail.FirstOrDefault(x => x.ID == DistributionDetailID);
+                if (detail != null)
+                {
+                    count = context.DistributionDetail.Where(x => x.DistributionID == detail.DistributionID && x.FamilyCardID == detail.FamilyCardID).Count();
+                }
+                return count;
+            }
+        }
+
+        //返回当前数据中的会员卡在配送清单中的数量
+        public int GetFamilyCardCount(string distributionID, int familyCardID)
+        {
+            int count = 0;
+            using (var context = new Entities())
+            {
+                count = context.DistributionDetail.Where(x => x.DistributionID == distributionID && x.FamilyCardID == familyCardID).Count();
+                return count;
+            }
+        }
+
+
+        public bool Add(DistributionDetailDto distribution)
+        {
+            using (var context = new Entities())
+            {
+                context.DistributionDetail.Add(new DistributionDetail
+                {
+                    DistributionID = distribution.DistributionID,
+                    FamilyCardID = distribution.FamilyCardID,
+                    Amount = distribution.Amount,
+                    ProductID = distribution.ProductID,
+                    ReportID = distribution.ReportID
+                });
+
+                var count = context.SaveChanges();
+                return count > 0;
+            }
+        }
+
+        public bool Delete(long id)
+        {
+            using (var context = new Entities())
+            {
+                var result = context.DistributionDetail.Where(x => x.ID == id).Delete();
+                return result > 0;
+            }
+        }
+
+        public bool Delete(string distributionID)
+        {
+            distributionID = distributionID.Trim();
+            using (var context = new Entities())
+            {
+                var result = context.DistributionDetail.Where(x => x.DistributionID == distributionID).Delete();
+                return result > 0;
+            }
+        }
+
+        public bool Update(DistributionDetailDto distributionDetail)
+        {
+            using (var context = new Entities())
+            {
+                var count = context.DistributionDetail.Where(x => x.ID == distributionDetail.ID).Update(x => new DistributionDetail
+                {
+                    DistributionID = distributionDetail.DistributionID,
+                    FamilyCardID = distributionDetail.FamilyCardID,
+                    Amount = distributionDetail.Amount,
+                    ProductID = distributionDetail.ProductID,
+                    ReportID = distributionDetail.ReportID
+                });
+
+                return count > 0;
+            }
+        }
+
+        public DistributionDetailDto GetistributionDetailByID(long id)
+        {
+            using (var context = new Entities())
+            {
+                return context.DistributionDetail.Where(x => x.ID == id).Select(x => new DistributionDetailDto
+                {
+                    ID = x.ID,
+                    DistributionID = x.DistributionID,
+                    FamilyCardID = x.FamilyCardID,
+                    Amount = x.Amount,
+                    ProductID = x.ProductID,
+                    ReportID = x.ReportID
+                }).FirstOrDefault();
+            }
+        }
+
+        public List<DistributionDetailDto> GetDetailListByDistributionID(string destributionID)
+        {
+            using (var context = new Entities())
+            {
+                var query = from dd in context.DistributionDetail
+                            where dd.DistributionID == destributionID
+                            join p in context.Product on dd.ProductID equals p.ID
+                            select new
+                            {
+                                ID = dd.ID,
+                                DistributionID = dd.DistributionID,
+                                FamilyCardID = dd.FamilyCardID,
+                                FamilyCardName = from familyCard in context.FamilyCard
+                                                 where familyCard.ID == dd.FamilyCardID
+                                                 join cardKind in context.CardKind on familyCard.CardKindID equals cardKind.ID
+                                                 select cardKind.Name,
+                                Amount = dd.Amount,
+                                ProductID = dd.ProductID,
+                                ProductName = p.Name,
+                                ReportID = dd.ReportID,
+                                ReportName = context.ProductReport.Where(x => x.ID == dd.ReportID).Select(x => x.Name)
+                            };
+
+                var list = query.Select(x => new DistributionDetailDto
+                {
+                    ID = x.ID,
+                    DistributionID = x.DistributionID,
+                    FamilyCardID = x.FamilyCardID,
+                    FamilyCardName = x.FamilyCardName.FirstOrDefault(),
+                    Amount = x.Amount,
+                    ProductID = x.ProductID,
+                    ProductName = x.ProductName,
+                    ReportID = x.ReportID,
+                    ReportName = x.ReportName.FirstOrDefault()
+                }).ToList();
+
+                return list;
+            }
+        }
+    }
+}

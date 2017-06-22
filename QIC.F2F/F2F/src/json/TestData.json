@@ -1,0 +1,467 @@
+﻿{
+	"FamilyData": {
+		"Data": [
+			{
+				"ID": 1,
+				"Name": "冯亭",
+				"NickName": "阿狸",
+				"Mobile": "18875011110",
+				"Region": "重庆",
+				"FamilyNumber": 6,
+				"Description": "没有说明",
+				"FamilyAddress": [
+					{
+						"ID": 1,
+						"Contractor": "冯亭",
+						"Phone": "18875011110",
+						"Address": "沙坪坝",
+						"PostCode": "451541",
+						"IsClosed": true
+					}, {
+						"ID": 2,
+						"Contractor": "冯亭",
+						"Phone": "18875011110",
+						"Address": "双碑",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "冯亭",
+						"Phone": "18875011110",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": true
+					}
+				]
+			}, {
+				"Name": "彭秋萍",
+				"NickName": "阿狸",
+				"Mobile": "18875011110",
+				"Region": "重庆",
+				"Description": "没有说明",
+				"FamilyNumber": 6,
+				"FamilyAddress": [
+					{
+						"ID": 1,
+						"Contractor": "彭秋萍",
+						"Phone": "18875011110",
+						"Address": "沙坪坝",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 2,
+						"Contractor": "彭秋萍",
+						"Phone": "18875011110",
+						"Address": "双碑",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "pqp",
+						"Phone": "18875011110",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}
+				]
+			}, {
+				"Name": "高熙",
+				"NickName": "阿狸",
+				"Mobile": "18875011110",
+				"Region": "重庆",
+				"Description": "没有说明",
+				"FamilyNumber": 6,
+				"FamilyAddress": [
+					{
+						"ID": 1,
+						"Contractor": "高熙",
+						"Phone": "18875011110",
+						"Address": "沙坪坝",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 2,
+						"Contractor": "高xiao熙",
+						"Phone": "18875011110",
+						"Address": "双碑",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "高熙",
+						"Phone": "18875011110",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}
+				]
+			}, {
+				"Name": "游娟",
+				"NickName": "阿狸",
+				"Mobile": "18875011110",
+				"Region": "重庆",
+				"Description": "没有说明",
+				"FamilyNumber": 6,
+				"FamilyAddress": [
+					{
+						"ID": 1,
+						"Contractor": "游娟",
+						"Phone": "18875011110",
+						"Address": "沙坪坝",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 2,
+						"Contractor": "游娟",
+						"Phone": "18875011110",
+						"Address": "双碑",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "18875011110",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "154545461234",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "188750111100",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "188750111100",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "188750111100",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "154545461234",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "154545461234",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "154545461234",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "154545461234",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "154545461234",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "154545461234",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "154545461234",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "154545461234",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}, {
+						"ID": 3,
+						"Contractor": "游xiao娟",
+						"Phone": "154545461234",
+						"Address": "石桥铺",
+						"PostCode": "451541",
+						"IsClosed": false
+					}
+				]
+			}
+		],
+		"Count": 4
+	},
+	"MemberData": {
+		"Data": [
+			{
+				"Value": 1,
+				"Text": "冯亭"
+			}, {
+				"Value": 2,
+				"Text": "红点点"
+			}, {
+				"Value": 3,
+				"Text": "轻轻"
+			}, {
+				"Value": 4,
+				"Text": "拜拜"
+			}, {
+				"Value": 5,
+				"Text": "俩点"
+			}
+		]
+	},
+	"AddressData": {
+		"Data": [
+			{
+				"Value": 1,
+				"Text": "小明-沙坪坝"
+			}, {
+				"Value": 2,
+				"Text": "红点点-北京"
+			}, {
+				"Value": 3,
+				"Text": "轻轻-北京"
+			}, {
+				"Value": 4,
+				"Text": "拜拜-北京"
+			}, {
+				"Value": 5,
+				"Text": "俩点-北京"
+			}, {
+				"Value": 6,
+				"Text": "俩点-北京"
+			}, {
+				"Value": 7,
+				"Text": "俩点-北京"
+			}, {
+				"Value": 8,
+				"Text": "俩点-北京"
+			}, {
+				"Value": 9,
+				"Text": "俩点-北京"
+			}, {
+				"Value": 10,
+				"Text": "俩点-北京"
+			}, {
+				"Value": 11,
+				"Text": "俩点-北京"
+			}, {
+				"Value": 12,
+				"Text": "俩点-北京"
+			}, {
+				"Value": 13,
+				"Text": "俩点-北京"
+			}, {
+				"Value": 14,
+				"Text": "俩点-北京"
+			}, {
+				"Value": 15,
+				"Text": "俩点-北京"
+			}, {
+				"Value": 16,
+				"Text": "俩点-北京"
+			}
+		]
+	},
+	"DistributionData": {
+		"Data": [
+			{
+				"ID": "1704101234",
+				"Phone": "18875019401",
+				"FamilyID": 1,
+				"Contractor": "冯亭",
+				"Address": "重庆",
+				"DistributedDate": "2017-4-29",
+				"CreateTime": "2017-4-27",
+				"Mobile": "1555555555555",
+				"Description": "没有描述",
+				"FamilyNumber": 4,
+				"Region": "chongq",
+				"AddressID": 1,
+				"FamilyID": 1,
+				"DistriList": [
+					{
+						"FamilyCard": "家庭年卡",
+						"FamilyCardID": 1,
+						"Product": "很多肉",
+						"ProductID": 1,
+						"Amount": 10,
+						"Report": "报告",
+						"ReportID": 1
+					}
+				]
+			}
+		]
+	},
+	"DistriList": {
+		"Data": [
+			{
+				"FamilyCard": "家庭年卡",
+				"FamilyCardID": 1,
+				"Product": "很多肉",
+				"ProductID": 1,
+				"Amount": 10,
+				"Report": "报告",
+				"ReportID": 1
+			}
+		]
+	},
+	"FamilyCardData": {
+		"Data": [
+			{
+				"Text": "家庭年卡",
+				"Value": 1
+			}, {
+				"Text": "家庭月卡",
+				"Value": 2
+			}
+		]
+	},
+	"ProductData": {
+		"Data": [
+			{
+				"Text": "很多肉",
+				"Value": 1
+			}, {
+				"Text": "很多菜",
+				"Value": 2
+			}
+		]
+	},
+	"ReportData": {
+		"Data": [
+			{
+				"Text": "报告",
+				"Value": 1
+			}, {
+				"Text": "报告2",
+				"Value": 2
+			}
+		]
+	},
+	"CardData": {
+		"Count": 4,
+		"Data": [
+			{
+				"ID": 1,
+				"Name": "家庭年卡",
+				"Description": "很多的描述",
+				"IsClosed": false,
+				"TotalCount": 20
+			}, {
+				"ID": 2,
+				"Name": "家庭月卡",
+				"Description": "很多的描述",
+				"IsClosed": false,
+				"TotalCount": 10
+			}, {
+				"ID": 3,
+				"Name": "家庭周卡",
+				"Description": "很多的描述",
+				"IsClosed": false,
+				"TotalCount": 5
+			}, {
+				"ID": 4,
+				"Name": "家庭日卡",
+				"Description": "很多的描述",
+				"IsClosed": true,
+				"TotalCount": 1
+			}
+		]
+	},
+	"FProductData": {
+		"Count": 4,
+		"Data": [
+			{
+				"ID": 1,
+				"Name": "鸡",
+				"Description": "很多的描述",
+				"IsClosed": false,
+				"Cooking": "生吃",
+				"Unit": "只"
+			}, {
+				"ID": 2,
+				"Name": "鸭",
+				"Description": "很多的描述",
+				"IsClosed": false,
+				"Cooking": "生吃",
+				"Unit": "只"
+			}, {
+				"ID": 3,
+				"Name": "青菜",
+				"Description": "很多的描述",
+				"IsClosed": false,
+				"Cooking": "生吃",
+				"Unit": "把"
+			}, {
+				"ID": 4,
+				"Name": "鱼",
+				"Description": "很多的描述",
+				"IsClosed": true,
+				"Cooking": "生吃",
+				"Unit": "条"
+			}
+		]
+	}
+	,
+	"FamilyCardData": {
+		"Data": [
+			{
+				"ID": 1,
+				"FamilyID": 1,
+				"FamilyName": "枫亭",
+				"CardKindID": 1,
+				"CardName": "家庭年卡",
+				"TotalCount": 10,
+				"DistributedCount": 5,
+				"IsValid": true,
+				"CreateTime": "2017-04-30"
+			}
+		],
+		"Count": 1
+	},
+	"ProductReportData": {
+		"Data": [
+			{
+			"ID":1,
+			"Name":"白菜报告",
+			"Description":"白色的菜",
+			"Writer":"chenxi",
+			"IsExpired":false,
+			"IsClosed":false,
+			"CreateTime":"2017-05-02"
+			}
+		]
+	}
+}

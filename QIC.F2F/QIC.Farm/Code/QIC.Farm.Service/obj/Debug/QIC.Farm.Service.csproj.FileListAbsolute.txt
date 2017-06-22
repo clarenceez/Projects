@@ -1,0 +1,6 @@
+D:\TestWork\QIC.Farm\lib\QIC.Farm.Service\QIC.Farm.Service.dll.config
+D:\TestWork\QIC.Farm\lib\QIC.Farm.Service\QIC.Farm.Service.dll
+D:\TestWork\QIC.Farm\lib\QIC.Farm.Service\QIC.Farm.Service.pdb
+D:\TestWork\QIC.Farm\Code\QIC.Farm.Service\obj\Debug\QIC.Farm.Service.csprojResolveAssemblyReference.cache
+D:\TestWork\QIC.Farm\Code\QIC.Farm.Service\obj\Debug\QIC.Farm.Service.dll
+D:\TestWork\QIC.Farm\Code\QIC.Farm.Service\obj\Debug\QIC.Farm.Service.pdb

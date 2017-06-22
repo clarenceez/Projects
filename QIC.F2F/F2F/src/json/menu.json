@@ -1,0 +1,34 @@
+{
+	"Menu": {
+		"MenuName": "菜单",
+		 "Icon":"help-buoy",
+		"SubMenu": [
+			{
+				"Name": "家庭管理",
+				"Url": "/Home/FamlilyManagement",
+				"Icon":"ios-people"
+			}, {
+				"Name": "卡类型管理",
+				"Url": "/Home/Card",
+				"Icon":"card"
+			}, {
+				"Name": "农产品管理",
+				"Url": "/Home/Product",
+				"Icon":"leaf"
+			}, {
+				"Name": "家庭卡管理",
+				"Url": "/Home/FamilyCard",
+				"Icon":"ios-barcode"
+			}, {
+				"Name": "配送管理",
+				"Url": "/Home/Distribution",
+				"Icon":"clipboard"
+			}, {
+				"Name": "溯源报告管理",
+				"Url": "/Home/ProductReport",
+				"Icon":"compose"
+			}
+		]
+	},
+	"Theme": "light"
+}

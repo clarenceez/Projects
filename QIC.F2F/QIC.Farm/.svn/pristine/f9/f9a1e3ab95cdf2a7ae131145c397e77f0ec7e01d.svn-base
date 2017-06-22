@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+  <configSections>
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+    <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,log4net" />
+    <section name="MessageQueue" type="QIC.Infrastructure.MessageQueue.MessageQueueConfig,QIC.Infrastructure.MessageQueue" />
+    <section name="UserMessageSender" type="QIC.Infrastructure.UserMessageManagement.Sender.ConfigSettings.UserMessageSenderConfigSection,QIC.Infrastructure.UserMessageManagement.Sender"/>
+    <section name="validCode" type="QIC.Infrastructure.ValidCodeManagement.Config.ValidCodeConfig,QIC.Infrastructure.ValidCodeManagement" />
+  </configSections>
+
+  <connectionStrings>
+    <add name="Entities" connectionString="metadata=res://*/Model.Model.csdl|res://*/Model.Model.ssdl|res://*/Model.Model.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=192.168.0.2;initial catalog=QIC.Farm;user id=sa;password=ml@2015;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+  </connectionStrings>
+
+  <!--系统所有消息队列配置-->
+  <MessageQueue>
+    <Factorys>
+      <add name="userMessageMq" type="msmq" setting="path=.\Private$\userMessage;transactional=false;timeout=10;recoverable=false"/>
+    </Factorys>
+  </MessageQueue>
+
+  <!--用户消息发送配置-->
+  <UserMessageSender mqSettingName="userMessageMq" />
+
+  <!--验证码发送配置-->
+  <validCode>
+    <Mobile cacheName="validCodeCache">
+      <add name="BindUser" length="4" validCodeType="1" validTime="180" onceValid="true">
+        <Message>
+          <add language="zh-cn" formatter="您的随机校验码为:{0}，请不要把校验码泄漏给其他人。"/>
+        </Message>
+      </add>
+    </Mobile>
+  </validCode>
+
+  <appSettings>
+    <add key="admin" value="123456"/>
+  </appSettings>
+
+  <system.web>
+    <compilation debug="true" targetFramework="4.5" />
+    <httpRuntime targetFramework="4.5" />
+  </system.web>
+
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Optimization" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-1.1.0.0" newVersion="1.1.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-1.5.2.14234" newVersion="1.5.2.14234" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+        <bindingRedirect oldVersion="1.0.0.0-5.2.0.0" newVersion="5.2.0.0" />
+      </dependentAssembly>
+      <dependentAssembly>
+        <assemblyIdentity name="System.Web.Http" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-5.2.0.0" newVersion="5.2.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+  <system.webServer>
+    <handlers>
+      <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+      <remove name="OPTIONSVerbHandler" />
+      <remove name="TRACEVerbHandler" />
+      <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+    </handlers>
+  </system.webServer>
+</configuration>

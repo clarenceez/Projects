@@ -1,0 +1,91 @@
+2017-06-20 10:48:35,856 [33] FarmApiLogger { Method = GetProductReportStr, Param = { id = 7 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductReportStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 1100
+2017-06-20 10:50:59,840 [26] FarmApiLogger { Method = GetProductReportStr, Param = { id = 7 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductReportStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 1100
+2017-06-20 10:51:34,483 [27] FarmApiLogger { Method = GetProductReportStr, Param = { id = 7 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductReportStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 1100
+2017-06-20 10:52:19,046 [35] FarmApiLogger { Method = GetProductReportStr, Param = { id = 7 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductReportStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 1100
+2017-06-20 10:52:24,240 [35] FarmApiLogger { Method = GetProductReportStr, Param = { id = 7 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductReportStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 1100
+2017-06-20 10:53:26,901 [8] FarmApiLogger { Method = GetProductReportStr, Param = { id = 9 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductReportStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 1100
+2017-06-20 10:58:15,240 [42] FarmApiLogger { Method = GetProductCookingStr, Param = { id = 10 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductCookingStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 881
+2017-06-20 10:58:23,831 [27] FarmApiLogger { Method = GetProductCookingStr, Param = { id = 16 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductCookingStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 881
+2017-06-20 10:58:37,909 [44] FarmApiLogger { Method = GetProductCookingStr, Param = { id = 15 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductCookingStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 881
+2017-06-20 10:58:40,394 [8] FarmApiLogger { Method = GetProductCookingStr, Param = { id = 14 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductCookingStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 881
+2017-06-20 11:07:13,253 [55] FarmApiLogger { Method = GetProductReportStr, Param = { id = 12 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductReportStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 1100
+2017-06-20 14:40:19,536 [12] FarmApiLogger { Method = GetProductReportStr, Param = { id = 9 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Common.HtmlReportHelper.ReaderHtmlReportContent(String filename) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Common\HtmlReportHelper.cs:行号 58
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductReportStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 1100
+2017-06-20 14:52:51,599 [19] FarmApiLogger { Method = GetProductReportStr, Param = { id = 12 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Common.HtmlReportHelper.ReaderHtmlReportContent(String filename) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Common\HtmlReportHelper.cs:行号 58
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductReportStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 1100
+2017-06-20 14:52:53,371 [19] FarmApiLogger { Method = GetProductReportStr, Param = { id = 10 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Common.HtmlReportHelper.ReaderHtmlReportContent(String filename) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Common\HtmlReportHelper.cs:行号 58
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductReportStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 1100
+2017-06-20 14:52:54,673 [23] FarmApiLogger { Method = GetProductReportStr, Param = { id = 8 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Common.HtmlReportHelper.ReaderHtmlReportContent(String filename) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Common\HtmlReportHelper.cs:行号 58
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductReportStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 1100
+2017-06-20 14:53:31,727 [23] FarmApiLogger { Method = GetProductCookingStr, Param = { id = 15 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Common.HtmlReportHelper.ReaderHtmlReportContent(String filename) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Common\HtmlReportHelper.cs:行号 58
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductCookingStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 881
+2017-06-20 15:13:39,738 [34] FarmApiLogger { Method = GetProductCookingStr, Param = { id = 11 }, Result =  }
+System.ArgumentOutOfRangeException: startIndex 不能大于字符串长度。
+参数名: startIndex
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 QIC.Farm.WebApi.Common.HtmlReportHelper.ReaderHtmlReportContent(String filename) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Common\HtmlReportHelper.cs:行号 58
+   在 QIC.Farm.WebApi.Controllers.BackgroundController.GetProductCookingStr(Int32 id) 位置 f:\QIC_SVN\QIC.Farm\Code\QIC.Farm.WebApi\Controllers\BackgroundController.cs:行号 881

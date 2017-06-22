@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QIC.FarmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CardKind">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="TotalCount" Type="int" Nullable="false" />
+    <Property Name="IsClosed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Distribution">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FamilyID" Type="int" Nullable="false" />
+    <Property Name="Contacter" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="DistributedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="DistributionDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DistributionID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FamilyCardID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ReportID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FamilyAddress">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FamilyID" Type="int" Nullable="false" />
+    <Property Name="Contacter" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="PostCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsClosed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FamilyCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FamilyID" Type="int" Nullable="false" />
+    <Property Name="CardKindID" Type="int" Nullable="false" />
+    <Property Name="TotalCount" Type="int" Nullable="false" />
+    <Property Name="DistributedCount" Type="int" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="IsValid" Type="bit" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="FamilyInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NickName" Type="varchar" MaxLength="50" />
+    <Property Name="OpenID" Type="varchar" MaxLength="250" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Region" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FamilyNumber" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="IsClosed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FamilyWechat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FamilyID" Type="int" Nullable="false" />
+    <Property Name="OpenID" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Unit" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Cooking" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="IsClosed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Writer" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsExpired" Type="bit" Nullable="false" />
+    <Property Name="IsClosed" Type="bit" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityContainer Name="QICFarmModelStoreContainer">
+    <EntitySet Name="CardKind" EntityType="Self.CardKind" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Distribution" EntityType="Self.Distribution" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DistributionDetail" EntityType="Self.DistributionDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FamilyAddress" EntityType="Self.FamilyAddress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FamilyCard" EntityType="Self.FamilyCard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FamilyInfo" EntityType="Self.FamilyInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FamilyWechat" EntityType="Self.FamilyWechat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductReport" EntityType="Self.ProductReport" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace QIC.Farm.Service.Dto
+{
+    public class DistributionDetailDto
+    {
+        public long ID { get; set; }
+        public string DistributionID { get; set; }
+        public int FamilyCardID { get; set; }
+        public string FamilyCardName { get; set; }
+        public int ProductID { get; set; }
+
+        //用于显示
+        public string ProductName { get; set; }
+        public decimal Amount { get; set; }
+        public int ReportID { get; set; }
+    }
+}

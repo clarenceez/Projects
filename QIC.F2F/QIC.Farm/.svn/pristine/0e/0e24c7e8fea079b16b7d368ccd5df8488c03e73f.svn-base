@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http.Formatting;
+using System.Web.Http;
+using System.Web.Http.Cors;
+
+namespace QIC.Farm.WebApi
+{
+    public static class WebApiConfig
+    {
+        public static void Register(HttpConfiguration config)
+        {
+            // Web API 配置和服务
+
+            //跨域配置，这里是临时配置 实际环境需配置文件配
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
+            // Web API 路由
+            config.MapHttpAttributeRoutes();
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{action}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            ConfigReturnJson();
+        }
+
+        //默认返回json配置
+        private static void ConfigReturnJson()
+        {
+            //日期格式配置
+            var jsonFomatter = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            jsonFomatter.SerializerSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Local;
+            jsonFomatter.SerializerSettings.DateFormatString = "yyyy'-'MM'-'dd' 'HH':'mm':'ss";
+            jsonFomatter.SerializerSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.MicrosoftDateFormat;
+
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+            //默认返回 json  
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.MediaTypeMappings.Add(
+                new QueryStringMapping("datatype", "json", "text/plain"));
+            //返回格式选择 datatype 可以替换为任何参数   
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.MediaTypeMappings.Add(
+                new QueryStringMapping("datatype", "xml", "application/xml"));
+        }
+    }
+}

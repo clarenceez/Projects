@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67156151-5D79-4EE8-AF17-3E4CE31C14EA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QIC.Farm.Service</RootNamespace>
+    <AssemblyName>QIC.Farm.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\lib\QIC.Farm.Service\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\lib\QIC.Farm.Service\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="QIC.Infrastructure.Cache.CacheManagement">
+      <HintPath>..\..\..\QIC.Infrastructure\lib\QIC.Infrastructure.Cache\QIC.Infrastructure.Cache.CacheManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\DistributionIDGenerator.cs" />
+    <Compile Include="Dal\CardKindDal.cs" />
+    <Compile Include="Dal\DistributionDal.cs" />
+    <Compile Include="Dal\DistributionDetailDal.cs" />
+    <Compile Include="Dal\FamilyAddressDal.cs" />
+    <Compile Include="Dal\FamilyCardDal.cs" />
+    <Compile Include="Dal\FamilyInfoDal.cs" />
+    <Compile Include="Dal\ProductDal.cs" />
+    <Compile Include="Dal\ProductReportDal.cs" />
+    <Compile Include="Dto\CardKindDto.cs" />
+    <Compile Include="Dto\CardKindResult.cs" />
+    <Compile Include="Dto\CardKindSearchDto.cs" />
+    <Compile Include="Dto\CommonSearchResult.cs" />
+    <Compile Include="Dto\DistributionDetailDto.cs" />
+    <Compile Include="Dto\DistributionDetailResult.cs" />
+    <Compile Include="Dto\DistributionDetailSearchDto.cs" />
+    <Compile Include="Dto\DistributionDto.cs" />
+    <Compile Include="Dto\DistributionResult.cs" />
+    <Compile Include="Dto\DistributionSearchDto.cs" />
+    <Compile Include="Dto\FamilyAddressDto.cs" />
+    <Compile Include="Dto\FamilyAddressSearchDto.cs" />
+    <Compile Include="Dto\FamilyCardDto.cs" />
+    <Compile Include="Dto\FamilyCardResult.cs" />
+    <Compile Include="Dto\FamilyCardSearchDto.cs" />
+    <Compile Include="Dto\FamilyInfoDto.cs" />
+    <Compile Include="Dto\FamilyInfoSearchDto.cs" />
+    <Compile Include="Dto\ProductDto.cs" />
+    <Compile Include="Dto\ProductReportDto.cs" />
+    <Compile Include="Dto\ProductReportResult.cs" />
+    <Compile Include="Dto\ProductReportSearchDto.cs" />
+    <Compile Include="Dto\ProductSearchDto.cs" />
+    <Compile Include="Enums\CardKindError.cs" />
+    <Compile Include="Enums\DistributionDetailError.cs" />
+    <Compile Include="Enums\DistributionError.cs" />
+    <Compile Include="Enums\FamilyCardError.cs" />
+    <Compile Include="Enums\FamilyInfoError.cs" />
+    <Compile Include="Enums\ProductError.cs" />
+    <Compile Include="Enums\ProductReportError.cs" />
+    <Compile Include="Model\CardKind.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Distribution.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DistributionDetail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FamilyAddress.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FamilyCard.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FamilyInfo.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Product.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ProductReport.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FarmService.cs" />
+    <Compile Include="Dto\FamilyResult.cs" />
+    <Compile Include="Dto\ProductResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Model\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <None Include="Model\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
